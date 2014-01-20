@@ -33,5 +33,11 @@
 	
 	<string name="plus">+</string>
 	
+	<string name="fname">ชื่อ</string>
+	<string name="lname">นามสกุล</string>
+	<string name="phone_num">เบอร์โทรศัพท์</string>
+	<string name="address">ที่อยู่</string>
+	
+	
 	
 </resources>

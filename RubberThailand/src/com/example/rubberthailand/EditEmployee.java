@@ -18,11 +18,17 @@ import android.widget.Toast;
 
 public class EditEmployee extends ViewEmployeeData{
 	private EditText editEmployee;
+	private EditText editLname;
+	private EditText editPhone;
+	private EditText editAddress;
 	 String[] head;
 	 String name ;
+	 String lname ;
 	 int count;
+	 int count1;
 	 private TextView header;
 	 String namefile[]=new String[100];
+	 String lnamefile[]=new String[100];
 	 public String key;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +38,9 @@ public class EditEmployee extends ViewEmployeeData{
 		key=getIntent().getStringExtra("key");
 		setContentView(R.layout.employee_new);
 		editEmployee=(EditText) findViewById(R.id.editEmployee);
+		editLname=(EditText) findViewById(R.id.editLname);
+		editPhone=(EditText) findViewById(R.id.editPhone);
+		editAddress=(EditText) findViewById(R.id.editAddress);
 		header= (TextView) findViewById(R.id.header);
 		
 		//prefs.getString("name"+count,"");
@@ -51,6 +60,7 @@ public class EditEmployee extends ViewEmployeeData{
 			data+=readString;
 			buffer=new char[100];
 		}reader.close();
+		editEmployee.setText(data);
 		editEmployee.setText(data);
 		}catch(IOException ioe){
 			ioe.printStackTrace();
@@ -76,13 +86,20 @@ public class EditEmployee extends ViewEmployeeData{
 				StringTokenizer str= new StringTokenizer(editEmployee.getText().toString(),"\n");
 				name=(String)str.nextToken();
 				namefile[count]=name;
-				
+				StringTokenizer str1= new StringTokenizer(editLname.getText().toString(),"\n");
+				lname=(String)str1.nextToken();
+				lnamefile[count1]=lname;
 				Toast.makeText(getApplicationContext(),"save successfully.", Toast.LENGTH_SHORT).show();	
 				
-				FileOutputStream fos = openFileOutput(name,Context.MODE_PRIVATE);
-				fos.write(editEmployee.getText().toString().getBytes());
-				fos.flush();
-				fos.close();
+				FileOutputStream fosname = openFileOutput(name,Context.MODE_PRIVATE);
+				fosname.write(editEmployee.getText().toString().getBytes());
+				fosname.flush();
+				fosname.close();
+				
+				FileOutputStream foslname = openFileOutput(lname,Context.MODE_PRIVATE);
+				foslname.write(editLname.getText().toString().getBytes());
+				foslname.flush();
+				foslname.close();
 				}catch(Exception e){}
 			
 			SharedPreferences pref = getSharedPreferences("PREFS", 0);
