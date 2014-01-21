@@ -16,12 +16,12 @@
             android:text="@string/bath" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/reset_cal_btn"
             android:layout_width="120dp"
             android:layout_height="40dp"
-            android:layout_alignBaseline="@+id/button2"
-            android:layout_alignBottom="@+id/button2"
-            android:layout_alignRight="@+id/button1"
+            android:layout_alignBaseline="@+id/save_cal_btn"
+            android:layout_alignBottom="@+id/save_cal_btn"
+            android:layout_alignRight="@+id/cal_btn"
             android:text="@string/reset" />
 
         <TextView
@@ -46,12 +46,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/EditText01"
-            android:layout_alignRight="@+id/button1"
+            android:layout_alignRight="@+id/cal_btn"
             android:layout_marginRight="19dp"
             android:text="%" />
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/cal_btn"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_below="@+id/textView7"
@@ -59,11 +59,11 @@
             android:text="@string/cal" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/save_cal_btn"
             android:layout_width="120dp"
             android:layout_height="40dp"
-            android:layout_alignLeft="@+id/button1"
-            android:layout_below="@+id/button1"
+            android:layout_alignLeft="@+id/cal_btn"
+            android:layout_below="@+id/cal_btn"
             android:layout_marginTop="18dp"
             android:text="@string/save" />
 
@@ -106,7 +106,7 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/button1"
+            android:layout_alignLeft="@+id/cal_btn"
             android:layout_below="@+id/textView3"
             android:layout_marginTop="17dp"
             android:text="@string/value_share" />
