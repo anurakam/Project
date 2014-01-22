@@ -58,11 +58,11 @@ public class MainActivity extends Activity implements android.view.View.OnClickL
 			startActivity(intent);
 			break;
 		case R.id.button2:
-			openManager();
+			Intent intent2 = new Intent(MainActivity.this, ViewPriceBeyond.class);
+			startActivity(intent2);
 			break;
 		case R.id.button3:
-			Intent intent3 = new Intent(MainActivity.this, ViewManeger.class);
-			startActivity(intent3);
+			openManager();
 			break;
 
 		default:
@@ -94,10 +94,10 @@ public class MainActivity extends Activity implements android.view.View.OnClickL
 		
 	}
 	private void showManager(int i) {
-		Intent intent2= new Intent(this, ViewManager.class);
-		intent2.putExtra(ViewManager.KEY_DIFFICULTY,i);
-		startActivity(intent2);
-		Log.d(TAG,"เลือก" +i);
+		Intent intent3= new Intent(this, ViewManager.class);
+		intent3.putExtra(ViewManager.KEY_DIFFICULTY,i);
+		startActivity(intent3);
+		//Log.d(TAG,"เลือก" +i);
 	}
 
 }

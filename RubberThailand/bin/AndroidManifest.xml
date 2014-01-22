@@ -32,7 +32,7 @@
             android:name=".ViewSelectRubber"
             android:label="เลือกประเภท"></activity>
         <activity 
-            android:name=".ViewManeger"
+            android:name=".ViewManager"
             android:label="การจัดการลูกจ้าง"></activity>
         <activity 
             android:name=".ViewCalShare"

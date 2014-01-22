@@ -72,26 +72,19 @@ public class ViewManager extends Activity{
 			break;
 		case DIFFICULTY_EMPLOYEE_DATA:
 			setContentView(R.layout.employee_data);
-			
 			SharedPreferences prefs = getSharedPreferences("PREFS" , 0);
 			count=(prefs.getInt("count", 0))-1;
 		if(count>=0){
 		mainLayout = (LinearLayout)findViewById(R.id.main_layout);
 		LayoutInflater inflater =LayoutInflater.from(this);
-		
-		
-	// Gets all stored items here
-	
-			// Example items
-				
-			//Creates a layout for each item, and add it to mainLayout
-			
-		   String[] fname=new String[count];
+		String[] fname=new String[count];
 		if(count>=0){
 		 	for(int i=0;i<count;i++)
 			{
 				fname[i]=prefs.getString("name"+i,"");		
-			}}
+			}
+		 	
+		}
 		
 			
 		if(count>=0){
@@ -111,14 +104,22 @@ public class ViewManager extends Activity{
 			});
 			mainLayout.addView(itemView);
 		}}}
-	}
+		
+	       
+	       
+			break;
 	
+		}
+	       
+	     
+}
 	private void openNote(String key) {
 		Intent intent=new Intent(this,EditEmployee.class);
 		intent.putExtra("key",key);
 		startActivity(intent);
 		
 	}
+	
 	boolean add;
 	@Override
 	public void onResume(){
@@ -161,7 +162,10 @@ public class ViewManager extends Activity{
 	@Override
 	public void onPause(){
 		super.onPause();
+	
+		
 	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main, menu);
@@ -173,10 +177,5 @@ public class ViewManager extends Activity{
 		startActivity(intent);
 		return true;
 		
-	}  
-			break;
-	
-		}
-	     
-}
+	}
 }
