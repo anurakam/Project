@@ -1,21 +1,20 @@
 package com.example.rubberthailand;
 
-
-
-
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 //import android.view.View.OnClickListener;
 
 public class MainActivity extends Activity implements android.view.View.OnClickListener  {
-
+	protected static final String KEY_DIFFICULTY = "manager";
+	protected static final int DIFFICULTY_CAL_SHARE = 0;
+	protected static final int DIFFICULTY_EMPLOYEE_DATA = 1;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -59,8 +58,7 @@ public class MainActivity extends Activity implements android.view.View.OnClickL
 			startActivity(intent);
 			break;
 		case R.id.button2:
-			Intent intent2 = new Intent(MainActivity.this, ViewPriceBeyond.class);
-			startActivity(intent2);
+			openManager();
 			break;
 		case R.id.button3:
 			Intent intent3 = new Intent(MainActivity.this, ViewManeger.class);
@@ -69,8 +67,37 @@ public class MainActivity extends Activity implements android.view.View.OnClickL
 
 		default:
 			break;
-		}
+		}	
+	}
+	
+	private void openManager(){
+		AlertDialog.Builder DialogManager = new AlertDialog.Builder(this);
+		DialogManager.setTitle("การจัดการลูกจ้าง");
+		DialogManager.setItems(R.array.manager, new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int i) {
+				// TODO Auto-generated method stub
+				//switch (R.array.dif){
+				showManager(i);
+				
+				//case DIFFICULTY_MONEYIN :
+					//Intent i= new Intent(MainActivity.this, ViewInsert.class);
+					//startActivity(i);
+					//break;
+				//}
+				
+			}
+		});
 		
+		DialogManager.show();
+		
+	}
+	private void showManager(int i) {
+		Intent intent2= new Intent(this, ViewManager.class);
+		intent2.putExtra(ViewManager.KEY_DIFFICULTY,i);
+		startActivity(intent2);
+		Log.d(TAG,"เลือก" +i);
 	}
 
 }

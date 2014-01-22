@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="manager">
+        <item>คำนวณส่วนแบ่ง</item>
+        <item>ข้อมูลประจำตัวลูกจ้าง</item>
+    </array>
+</resources>
