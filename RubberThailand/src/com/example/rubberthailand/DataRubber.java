@@ -19,9 +19,9 @@ public class DataRubber extends SQLiteOpenHelper {
 		// TODO Auto-generated method stub
 		db.execSQL("CREATE TABLE rubberprice ("
 				+ "_id  INTEGER PRIMARY KEY AUTOINCREMENT,"
-				+ "date TEXT NOT NULL,"
-				+ "value_all TEXT NOT NULL,"
-				+ "value_share TEXT NOT NULL);");
+				//+ "date TEXT NOT NULL,"
+				+ "valueall TEXT NOT NULL,"
+				+ "valueshare TEXT NOT NULL);");
 	}
 
 	@Override

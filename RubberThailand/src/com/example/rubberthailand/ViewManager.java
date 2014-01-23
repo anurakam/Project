@@ -2,7 +2,7 @@ package com.example.rubberthailand;
 
 
 
-import com.example.money.DataMoney;
+
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -33,7 +33,7 @@ public class ViewManager extends Activity{
 	private Button reset_cal_btn;
 	private Button save_cal_btn;
 	private TextView textView1;
-	private String value,rate,total,date,valueshare;
+	private String value,rate,total,date,valueshare,valueall;
 	private double cal;
 	DataRubber dataRubber;
 	
@@ -208,12 +208,16 @@ public class ViewManager extends Activity{
 	@Override
 	public void onClick(DialogInterface dialog, int which) {
 		// TODO Auto-generated method stub
-		addPrice();
+		valueshare = textView1.getText().toString();
+		valueall = "";
+		addPrice(valueall,valueshare);
 	}
 	
-	private void addMoney(String date,String valueshare) {
+	private void addPrice(String valueall,String valueshare) {
 		ContentValues values = new ContentValues();
-		values.put(date, System.currentTimeMillis());
+		
+		//values.put(date, System.currentTimeMillis());
+		values.put("valueall", valueall);
 		values.put("valueshare", valueshare);
 						
 		SQLiteDatabase db = dataRubber.getWritableDatabase();
