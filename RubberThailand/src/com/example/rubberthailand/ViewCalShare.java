@@ -1,6 +1,8 @@
 package com.example.rubberthailand;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -13,6 +15,7 @@ public class ViewCalShare extends Activity{
 	private EditText EditText01;
 	private Button cal_btn;
 	private Button reset_cal_btn;
+	private Button save_cal_btn;
 	private TextView textView1;
 	private String value,rate,total;
 	private double cal;
@@ -49,5 +52,8 @@ public class ViewCalShare extends Activity{
 			}
 		});
 		
+		
+		
 	}
+		
 }

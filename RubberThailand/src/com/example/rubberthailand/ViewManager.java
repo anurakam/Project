@@ -2,10 +2,15 @@ package com.example.rubberthailand;
 
 
 
+import com.example.money.DataMoney;
+
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -26,9 +31,11 @@ public class ViewManager extends Activity{
 	private EditText EditText01;
 	private Button cal_btn;
 	private Button reset_cal_btn;
+	private Button save_cal_btn;
 	private TextView textView1;
-	private String value,rate,total;
+	private String value,rate,total,date,valueshare;
 	private double cal;
+	DataRubber dataRubber;
 	
 	LinearLayout mainLayout;
 	int lent;
@@ -45,6 +52,7 @@ public class ViewManager extends Activity{
 			EditText01 = (EditText) findViewById(R.id.EditText01);
 			cal_btn = (Button) findViewById(R.id.cal_btn);
 			reset_cal_btn = (Button) findViewById(R.id.reset_cal_btn);
+			save_cal_btn = (Button) findViewById(R.id.save_cal_btn);
 			textView1 = (TextView) findViewById(R.id.textView1);
 			cal_btn.setOnClickListener(new OnClickListener() {
 				
@@ -68,6 +76,16 @@ public class ViewManager extends Activity{
 					textView1.setText("");
 				}
 			});
+			
+			save_cal_btn.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View arg0) {
+					// TODO Auto-generated method stub
+					confirm();
+				}
+			});
+			
 	     
 			break;
 		case DIFFICULTY_EMPLOYEE_DATA:
@@ -177,5 +195,40 @@ public class ViewManager extends Activity{
 		startActivity(intent);
 		return true;
 		
+	}
+	
+	public void confirm() {
+		AlertDialog.Builder dialogConfirm = new AlertDialog.Builder(this);
+        dialogConfirm.setTitle("บันทึก");
+        dialogConfirm.setIcon(R.drawable.ic_launcher);
+        dialogConfirm.setCancelable(true);
+        dialogConfirm.setMessage("คุณต้องการบันทึกใช่หรือไม่?");
+        dialogConfirm.setPositiveButton("ใช่", new  DialogInterface.OnClickListener() {
+	
+	@Override
+	public void onClick(DialogInterface dialog, int which) {
+		// TODO Auto-generated method stub
+		addPrice();
+	}
+	
+	private void addMoney(String date,String valueshare) {
+		ContentValues values = new ContentValues();
+		values.put(date, System.currentTimeMillis());
+		values.put("valueshare", valueshare);
+						
+		SQLiteDatabase db = dataRubber.getWritableDatabase();
+		db.insertOrThrow("rubberprice", null, values);
+	}
+});
+        dialogConfirm.setNegativeButton("ไม่",new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				dialog.cancel();
+			}
+		});
+        
+        dialogConfirm.show(); 
 	}
 }

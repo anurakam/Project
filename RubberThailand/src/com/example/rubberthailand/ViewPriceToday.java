@@ -35,7 +35,7 @@ public class ViewPriceToday extends Activity {
 				double rp = Double.parseDouble(rubberprice);
 				quantity = EditText01.getText().toString();
 				double qt = Double.parseDouble(quantity);
-				cal = rp + qt;
+				cal = rp * qt;
 				total = String.valueOf(cal);
 				textView8.setText(total);
 			}
