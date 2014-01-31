@@ -90,7 +90,7 @@ public class ViewManager extends Activity {
 			break;
 		case DIFFICULTY_EMPLOYEE_DATA:
 			setContentView(R.layout.employee_data);
-			SharedPreferences prefs = getSharedPreferences("PREFS", 0);
+			/*SharedPreferences prefs = getSharedPreferences("PREFS", 0);
 			count = (prefs.getInt("count", 0)) - 1;
 			if (count >= 0) {
 				mainLayout = (LinearLayout) findViewById(R.id.main_layout);
@@ -126,11 +126,11 @@ public class ViewManager extends Activity {
 
 			break;
 
-		}
+		*/}
 
 	}
 
-	private void openNote(String key) {
+/*	private void openNote(String key) {
 		Intent intent = new Intent(this, EditEmployee.class);
 		intent.putExtra("key", key);
 		startActivity(intent);
@@ -183,7 +183,7 @@ public class ViewManager extends Activity {
 	public void onPause() {
 		super.onPause();
 
-	}
+	}*/
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
