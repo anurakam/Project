@@ -130,7 +130,7 @@ public class ViewManager extends Activity {
 
 	}
 
-/*	private void openNote(String key) {
+	/*private void openNote(String key) {
 		Intent intent = new Intent(this, EditEmployee.class);
 		intent.putExtra("key", key);
 		startActivity(intent);

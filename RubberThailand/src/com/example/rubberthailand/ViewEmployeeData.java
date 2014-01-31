@@ -18,13 +18,14 @@ public class ViewEmployeeData extends Activity {
 	int lent;
 	String[] items ;
 	int count;
-	
+	int count1;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.employee_data);
 		 SharedPreferences prefs = getSharedPreferences("PREFS" , 0);
 			count=(prefs.getInt("count", 0))-1;
+			//count1=(prefs.getInt("count1", 0))-1;
 		if(count>=0){
 		mainLayout = (LinearLayout)findViewById(R.id.main_layout);
 		LayoutInflater inflater =LayoutInflater.from(this);
@@ -37,10 +38,12 @@ public class ViewEmployeeData extends Activity {
 			//Creates a layout for each item, and add it to mainLayout
 			
 		   String[] fname=new String[count];
+		   
 		if(count>=0){
 		 	for(int i=0;i<count;i++)
 			{
-				fname[i]=prefs.getString("name"+i,"");		
+				fname[i]=prefs.getString("name"+i,"");	
+				//lname[i]=prefs.getString("lname"+i,"");
 			}}
 		
 			
@@ -51,6 +54,7 @@ public class ViewEmployeeData extends Activity {
 				= (TextView) itemView.findViewById(R.id.item);
 			
 			textView.setText(prefs.getString("name"+i,""));
+			
              textView.setOnClickListener(new View.OnClickListener() {
 				
 				@Override

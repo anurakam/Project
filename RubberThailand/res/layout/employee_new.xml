@@ -75,7 +75,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/address"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/address"
         android:layout_marginTop="17dp"
@@ -90,5 +89,13 @@
         android:layout_above="@+id/editLname"
         android:layout_alignParentLeft="true"
         android:text="@string/fname" />
+
+    <Button
+        android:id="@+id/save_em_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/save" />
 
 </RelativeLayout>
